@@ -11,7 +11,6 @@ import { Dashboard } from '../dashboard/dashboard';
 export class LoginPage {
   user = {name:'',password:''};
   constructor(public navCtrl: NavController,private alertCtrl: AlertController) {
-    console.log(_)
   }
 
   openDashboard(){
