@@ -1,20 +1,35 @@
 import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
-import { ListPage } from '../list/list';
+import { AlertController } from 'ionic-angular';
+import * as _ from 'lodash';
+import { Dashboard } from '../dashboard/dashboard';
 
 @Component({
   selector: 'page-login',
   templateUrl: 'login.html'
 })
 export class LoginPage {
-
-  constructor(public navCtrl: NavController) {
-
+  user = {name:'',password:''};
+  constructor(public navCtrl: NavController,private alertCtrl: AlertController) {
+    console.log(_)
   }
 
-  changeToList(){
-    this.navCtrl.push(ListPage);
-    this.navCtrl.setRoot(ListPage)
+  openDashboard(){
+    if(_.isEqual(this.user,{name: "taj", password: "password"})){
+       this.navCtrl.push(Dashboard);
+       this.navCtrl.setRoot(Dashboard)
+    }else{
+      this.presentAlert('Login Failed','Incorrect username or password.');
+    }
+  }
+
+  presentAlert(title:string,msg:string) {
+    let alert = this.alertCtrl.create({
+      title: title,
+      subTitle: msg,
+      buttons: ['Ok']
+    });
+    alert.present();
   }
 
 }
