@@ -10,8 +10,8 @@
 
 <ion-list>
   <ion-item>
-    <ion-label stacked>Username</ion-label>
-    <ion-input type="text" [(ngModel)]="user.name"></ion-input>
+    <ion-label stacked>Email</ion-label>
+    <ion-input type="text" [(ngModel)]="user.email"></ion-input>
   </ion-item>
 
   <ion-item>
@@ -21,5 +21,5 @@
 </ion-list>
 
 <div padding>
- <button ion-button full round (click)="openDashboard()">Login</button>
+ <button ion-button full round (click)="userLogin()">Login</button>
 </div>
