@@ -3,13 +3,13 @@ import { ErrorHandler, NgModule } from '@angular/core';
 import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { StatusBar } from '@ionic-native/status-bar';
-import { HttpModule, JsonpModule } from '@angular/http';
+import { HttpModule } from '@angular/http';
+
 
 import { MyApp } from './app.component';
 import { LoginPage } from '../pages/login/login';
 import { Dashboard } from '../pages/dashboard/dashboard';
 import { LoginService } from '../pages/login/login.service';
-import { ConfigService } from './config.service';
 
 @NgModule({
   declarations: [
@@ -32,8 +32,7 @@ import { ConfigService } from './config.service';
     StatusBar,
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
-    LoginService,
-    ConfigService
+    LoginService
   ]
 })
 export class AppModule {}
