@@ -3,13 +3,14 @@ import { NavController } from 'ionic-angular';
 import { AlertController } from 'ionic-angular';
 import * as _ from 'lodash';
 import { Dashboard } from '../dashboard/dashboard';
+import { Signup } from '../signup/signup';
 import { LoginService } from './login.service';
 
 @Component({
   selector: 'page-login',
   templateUrl: 'login.html'
 })
-export class LoginPage {
+export class Login {
   user = {email:'',password:''};
 
   constructor(public navCtrl: NavController,
@@ -41,6 +42,10 @@ export class LoginPage {
       buttons: ['Ok']
     });
     alert.present();
+  }
+
+  redirectToSignup(){
+      this.navCtrl.push(Signup);
   }
 
 }

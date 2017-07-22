@@ -55877,11 +55877,12 @@ LoginService = __decorate([
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return LoginPage; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return Login; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(34);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__dashboard_dashboard__ = __webpack_require__(98);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__login_service__ = __webpack_require__(99);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__signup_signup__ = __webpack_require__(269);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__login_service__ = __webpack_require__(99);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -55896,14 +55897,15 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
-var LoginPage = (function () {
-    function LoginPage(navCtrl, alertCtrl, loginservice) {
+
+var Login = (function () {
+    function Login(navCtrl, alertCtrl, loginservice) {
         this.navCtrl = navCtrl;
         this.alertCtrl = alertCtrl;
         this.loginservice = loginservice;
         this.user = { email: '', password: '' };
     }
-    LoginPage.prototype.userLogin = function () {
+    Login.prototype.userLogin = function () {
         var _this = this;
         this.loginservice.login(this.user)
             .subscribe(function (user) {
@@ -55920,7 +55922,7 @@ var LoginPage = (function () {
            this.presentAlert('Login Failed','Incorrect username or password.');
          }*/
     };
-    LoginPage.prototype.presentAlert = function (title, msg) {
+    Login.prototype.presentAlert = function (title, msg) {
         var alert = this.alertCtrl.create({
             title: title,
             subTitle: msg,
@@ -55928,17 +55930,19 @@ var LoginPage = (function () {
         });
         alert.present();
     };
-    return LoginPage;
+    Login.prototype.redirectToSignup = function () {
+        this.navCtrl.push(__WEBPACK_IMPORTED_MODULE_3__signup_signup__["a" /* Signup */]);
+    };
+    return Login;
 }());
-LoginPage = __decorate([
+Login = __decorate([
     __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_6" /* Component */])({
-        selector: 'page-login',template:/*ion-inline-start:"/home/tajuddin/Desktop/Ionic2-BD/BD/src/pages/login/login.html"*/'<ion-content scroll="true">\n<ion-grid>\n  <ion-row>\n    <ion-col col-3></ion-col>\n    <ion-col col-6>\n     <img src="./assets/icon/login-icon.png" style="width:100%">\n    </ion-col>\n  </ion-row>\n</ion-grid>\n\n<ion-list>\n  <ion-item>\n    <ion-label stacked>Email</ion-label>\n    <ion-input type="text" [(ngModel)]="user.email"></ion-input>\n  </ion-item>\n\n  <ion-item>\n    <ion-label stacked>Password</ion-label>\n    <ion-input type="password" [(ngModel)]="user.password"></ion-input>\n  </ion-item>\n</ion-list>\n\n<div padding>\n <button ion-button full round (click)="userLogin()">Login&nbsp;<ion-icon name="paper-plane"></ion-icon></button>\n</div>\n</ion-content>'/*ion-inline-end:"/home/tajuddin/Desktop/Ionic2-BD/BD/src/pages/login/login.html"*/
+        selector: 'page-login',template:/*ion-inline-start:"/home/tajuddin/Desktop/Ionic2-BD/BD/src/pages/login/login.html"*/'<ion-content scroll="true">\n<ion-grid>\n  <ion-row>\n    <ion-col col-3></ion-col>\n    <ion-col col-6>\n     <img src="./assets/icon/login-icon.png" style="width:100%">\n    </ion-col>\n  </ion-row>\n</ion-grid>\n\n<ion-list>\n  <ion-item>\n    <ion-label stacked>Email</ion-label>\n    <ion-input type="text" [(ngModel)]="user.email"></ion-input>\n  </ion-item>\n\n  <ion-item>\n    <ion-label stacked>Password</ion-label>\n    <ion-input type="password" [(ngModel)]="user.password"></ion-input>\n  </ion-item>\n</ion-list>\n\n<div padding>\n <button ion-button full round (click)="userLogin()">Login&nbsp;<ion-icon name="paper-plane"></ion-icon></button>\n</div>\n<div padding>\n  <button ion-button clear (click)="redirectToSignup()">Signup</button>\n</div>\n</ion-content>'/*ion-inline-end:"/home/tajuddin/Desktop/Ionic2-BD/BD/src/pages/login/login.html"*/
     }),
-    __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["d" /* NavController */],
-        __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* AlertController */],
-        __WEBPACK_IMPORTED_MODULE_3__login_service__["a" /* LoginService */]])
-], LoginPage);
+    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["d" /* NavController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["d" /* NavController */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* AlertController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* AlertController */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_4__login_service__["a" /* LoginService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_4__login_service__["a" /* LoginService */]) === "function" && _c || Object])
+], Login);
 
+var _a, _b, _c;
 //# sourceMappingURL=login.js.map
 
 /***/ }),
@@ -76656,14 +76660,16 @@ webpackEmptyAsyncContext.id = 196;
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__angular_http__ = __webpack_require__(101);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__app_component__ = __webpack_require__(199);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__pages_login_login__ = __webpack_require__(100);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__pages_dashboard_dashboard__ = __webpack_require__(98);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__pages_login_login_service__ = __webpack_require__(99);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__pages_signup_signup__ = __webpack_require__(269);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__pages_dashboard_dashboard__ = __webpack_require__(98);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__pages_login_login_service__ = __webpack_require__(99);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
+
 
 
 
@@ -76683,8 +76689,9 @@ AppModule = __decorate([
     __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1__angular_core__["a" /* NgModule */])({
         declarations: [
             __WEBPACK_IMPORTED_MODULE_6__app_component__["a" /* MyApp */],
-            __WEBPACK_IMPORTED_MODULE_7__pages_login_login__["a" /* LoginPage */],
-            __WEBPACK_IMPORTED_MODULE_8__pages_dashboard_dashboard__["a" /* Dashboard */]
+            __WEBPACK_IMPORTED_MODULE_7__pages_login_login__["a" /* Login */],
+            __WEBPACK_IMPORTED_MODULE_9__pages_dashboard_dashboard__["a" /* Dashboard */],
+            __WEBPACK_IMPORTED_MODULE_8__pages_signup_signup__["a" /* Signup */]
         ],
         imports: [
             __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser__["a" /* BrowserModule */],
@@ -76694,14 +76701,15 @@ AppModule = __decorate([
         bootstrap: [__WEBPACK_IMPORTED_MODULE_2_ionic_angular__["b" /* IonicApp */]],
         entryComponents: [
             __WEBPACK_IMPORTED_MODULE_6__app_component__["a" /* MyApp */],
-            __WEBPACK_IMPORTED_MODULE_7__pages_login_login__["a" /* LoginPage */],
-            __WEBPACK_IMPORTED_MODULE_8__pages_dashboard_dashboard__["a" /* Dashboard */]
+            __WEBPACK_IMPORTED_MODULE_7__pages_login_login__["a" /* Login */],
+            __WEBPACK_IMPORTED_MODULE_9__pages_dashboard_dashboard__["a" /* Dashboard */],
+            __WEBPACK_IMPORTED_MODULE_8__pages_signup_signup__["a" /* Signup */]
         ],
         providers: [
             __WEBPACK_IMPORTED_MODULE_4__ionic_native_status_bar__["a" /* StatusBar */],
             __WEBPACK_IMPORTED_MODULE_3__ionic_native_splash_screen__["a" /* SplashScreen */],
             { provide: __WEBPACK_IMPORTED_MODULE_1__angular_core__["b" /* ErrorHandler */], useClass: __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["c" /* IonicErrorHandler */] },
-            __WEBPACK_IMPORTED_MODULE_9__pages_login_login_service__["a" /* LoginService */]
+            __WEBPACK_IMPORTED_MODULE_10__pages_login_login_service__["a" /* LoginService */]
         ]
     })
 ], AppModule);
@@ -76921,7 +76929,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 var MyApp = (function () {
     function MyApp(platform, statusBar, splashScreen) {
-        this.rootPage = __WEBPACK_IMPORTED_MODULE_4__pages_login_login__["a" /* LoginPage */];
+        this.rootPage = __WEBPACK_IMPORTED_MODULE_4__pages_login_login__["a" /* Login */];
         platform.ready().then(function () {
             // Okay, so the platform is ready and our plugins are available.
             // Here you can do any higher level native things you might need.
@@ -76937,9 +76945,10 @@ var MyApp = (function () {
 MyApp = __decorate([
     __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_6" /* Component */])({template:/*ion-inline-start:"/home/tajuddin/Desktop/Ionic2-BD/BD/src/app/app.html"*/'<ion-nav [root]="rootPage"></ion-nav>'/*ion-inline-end:"/home/tajuddin/Desktop/Ionic2-BD/BD/src/app/app.html"*/
     }),
-    __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* Platform */], __WEBPACK_IMPORTED_MODULE_2__ionic_native_status_bar__["a" /* StatusBar */], __WEBPACK_IMPORTED_MODULE_3__ionic_native_splash_screen__["a" /* SplashScreen */]])
+    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* Platform */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* Platform */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_2__ionic_native_status_bar__["a" /* StatusBar */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__ionic_native_status_bar__["a" /* StatusBar */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_3__ionic_native_splash_screen__["a" /* SplashScreen */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__ionic_native_splash_screen__["a" /* SplashScreen */]) === "function" && _c || Object])
 ], MyApp);
 
+var _a, _b, _c;
 //# sourceMappingURL=app.component.js.map
 
 /***/ }),
@@ -114466,6 +114475,49 @@ function toSubscriber(nextOrObserver, error, complete) {
 }
 exports.toSubscriber = toSubscriber;
 //# sourceMappingURL=toSubscriber.js.map
+
+/***/ }),
+/* 269 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return Signup; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(34);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__login_login__ = __webpack_require__(100);
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+
+var Signup = (function () {
+    function Signup(navCtrl, alertCtrl) {
+        this.navCtrl = navCtrl;
+        this.alertCtrl = alertCtrl;
+        this.user = { email: '', password: '', name: '' };
+    }
+    Signup.prototype.redirectToLogin = function () {
+        this.navCtrl.push(__WEBPACK_IMPORTED_MODULE_2__login_login__["a" /* Login */]);
+    };
+    return Signup;
+}());
+Signup = __decorate([
+    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_6" /* Component */])({
+        selector: 'page-signup',template:/*ion-inline-start:"/home/tajuddin/Desktop/Ionic2-BD/BD/src/pages/signup/signup.html"*/'<ion-content scroll="true">\n<ion-grid>\n  <ion-row>\n    <ion-col col-3></ion-col>\n    <ion-col col-6>\n     <img src="./assets/icon/login-icon.png" style="width:100%">\n    </ion-col>\n  </ion-row>\n</ion-grid>\n\n<ion-list>\n   <ion-item>\n    <ion-label stacked>Name</ion-label>\n    <ion-input type="text" [(ngModel)]="user.name"></ion-input>\n  </ion-item>\n\n  <ion-item>\n    <ion-label stacked>Email</ion-label>\n    <ion-input type="text" [(ngModel)]="user.email"></ion-input>\n  </ion-item>\n\n  <ion-item>\n    <ion-label stacked>Password</ion-label>\n    <ion-input type="password" [(ngModel)]="user.password"></ion-input>\n  </ion-item>\n</ion-list>\n\n<div padding>\n <button ion-button full round>Signup&nbsp;<ion-icon name="paper-plane"></ion-icon></button>\n</div>\n<div padding>\n  <button ion-button clear (click)="redirectToLogin()">Login</button>\n</div>\n</ion-content>'/*ion-inline-end:"/home/tajuddin/Desktop/Ionic2-BD/BD/src/pages/signup/signup.html"*/
+    }),
+    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["d" /* NavController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["d" /* NavController */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* AlertController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* AlertController */]) === "function" && _b || Object])
+], Signup);
+
+var _a, _b;
+//# sourceMappingURL=signup.js.map
 
 /***/ })
 /******/ ]);

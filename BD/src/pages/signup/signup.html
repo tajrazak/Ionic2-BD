@@ -1,0 +1,34 @@
+<ion-content scroll="true">
+<ion-grid>
+  <ion-row>
+    <ion-col col-3></ion-col>
+    <ion-col col-6>
+     <img src="./assets/icon/login-icon.png" style="width:100%">
+    </ion-col>
+  </ion-row>
+</ion-grid>
+
+<ion-list>
+   <ion-item>
+    <ion-label stacked>Name</ion-label>
+    <ion-input type="text" [(ngModel)]="user.name"></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label stacked>Email</ion-label>
+    <ion-input type="text" [(ngModel)]="user.email"></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label stacked>Password</ion-label>
+    <ion-input type="password" [(ngModel)]="user.password"></ion-input>
+  </ion-item>
+</ion-list>
+
+<div padding>
+ <button ion-button full round>Signup&nbsp;<ion-icon name="paper-plane"></ion-icon></button>
+</div>
+<div padding>
+  <button ion-button clear (click)="redirectToLogin()">Login</button>
+</div>
+</ion-content>

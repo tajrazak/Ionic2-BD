@@ -7,15 +7,17 @@ import { HttpModule } from '@angular/http';
 
 
 import { MyApp } from './app.component';
-import { LoginPage } from '../pages/login/login';
+import { Login } from '../pages/login/login';
+import { Signup } from '../pages/signup/signup';
 import { Dashboard } from '../pages/dashboard/dashboard';
 import { LoginService } from '../pages/login/login.service';
 
 @NgModule({
   declarations: [
     MyApp,
-    LoginPage,
-    Dashboard
+    Login,
+    Dashboard,
+    Signup
   ],
   imports: [
     BrowserModule,
@@ -25,8 +27,9 @@ import { LoginService } from '../pages/login/login.service';
   bootstrap: [IonicApp],
   entryComponents: [
     MyApp,
-    LoginPage,
-    Dashboard
+    Login,
+    Dashboard,
+    Signup
   ],
   providers: [
     StatusBar,
